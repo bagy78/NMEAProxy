@@ -250,7 +250,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "NMEA Proxy 0.1\nby Bagy");
+        JOptionPane.showMessageDialog(rootPane, "NMEA Proxy 0.2\nby Bagy\n22 August 2017");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jTextFieldNotizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNotizenActionPerformed
