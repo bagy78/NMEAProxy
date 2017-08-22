@@ -54,11 +54,13 @@ public class GUI extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("NMEA Proxy");
+        setResizable(false);
 
         jButtonStart.setText("Start");
         jButtonStart.addActionListener(new java.awt.event.ActionListener() {
@@ -81,14 +83,6 @@ public class GUI extends javax.swing.JFrame {
         jLabel3.setText("Client Port");
 
         jLabel4.setText("Max Clients");
-
-        jTextFieldServerPort.setText("4444");
-
-        jTextFieldmaxClients.setText("4");
-
-        jTextFieldClientIP.setText("192.168.131.232");
-
-        jTextFieldClientPort.setText("4002");
 
         jLabel5.setText("Aktive Verbindungen:");
 
@@ -113,6 +107,16 @@ public class GUI extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItem1);
+
+        jMenuItem3.setLabel("Save Settings");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+        jMenuItem3.getAccessibleContext().setAccessibleName("jMenuItemSave");
+        jMenuItem3.getAccessibleContext().setAccessibleDescription("");
 
         jMenuBar1.add(jMenu1);
 
@@ -140,32 +144,30 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelaktverbindungen, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButtonStart)
-                                            .addComponent(jLabel2)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(jTextFieldServerPort, javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addGap(127, 127, 127))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jTextFieldClientIP)
-                                        .addGap(43, 43, 43)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jButtonStop)
+                                    .addComponent(jButtonStart)
+                                    .addComponent(jLabel2)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jTextFieldClientPort, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addComponent(jTextFieldmaxClients, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addComponent(jTextFieldNotizen, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jTextFieldServerPort, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(127, 127, 127))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextFieldClientIP)
+                                .addGap(43, 43, 43)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jButtonStop)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jTextFieldClientPort, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextFieldmaxClients, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextFieldNotizen, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel5)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelaktverbindungen, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -195,11 +197,11 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabelaktverbindungen))
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldNotizen)
-                .addContainerGap())
+                .addGap(41, 41, 41))
         );
 
         pack();
@@ -221,7 +223,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jButtonStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartActionPerformed
         // TODO add your handling code here:
-        saveallSettings();
+        
         // Starter mit maximale Anzahl der Verbindungen instanzieren
         
         if (a == null){
@@ -254,6 +256,11 @@ public class GUI extends javax.swing.JFrame {
     private void jTextFieldNotizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNotizenActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNotizenActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        saveallSettings();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     public void setActiveVerbindungen(int verbindungen){
         jLabelaktverbindungen.setText(Integer.toString(verbindungen));
@@ -320,6 +327,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JTextField jTextFieldClientIP;
     private javax.swing.JTextField jTextFieldClientPort;
     private javax.swing.JTextField jTextFieldNotizen;
