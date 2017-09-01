@@ -23,7 +23,7 @@ public class LastSettings {
 public static void setPreference(String Key, String Value) {
     Properties configFile = new Properties();
     try {
-        InputStream f = new FileInputStream("configuration.xml");
+        InputStream f = new FileInputStream("configNMEAProxy.xml");
         configFile.loadFromXML(f);
         f.close();
     }
@@ -36,7 +36,7 @@ public static void setPreference(String Key, String Value) {
     //configFile.setProperty("mega", "cool");
     //configFile.clear();
     try {
-        OutputStream f = new FileOutputStream("configuration.xml");
+        OutputStream f = new FileOutputStream("configNMEAProxy.xml");
         configFile.storeToXML(f,"Configuration file for the NMEA Proxy");
         
     }
@@ -47,7 +47,7 @@ public static void setPreference(String Key, String Value) {
 public static String getPreference(String Key) {
     Properties configFile = new Properties();
     try {
-        InputStream f = new FileInputStream("configuration.xml");
+        InputStream f = new FileInputStream("configNMEAProxy.xml");
         configFile.loadFromXML(f);
         f.close();
     }

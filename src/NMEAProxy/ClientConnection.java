@@ -32,6 +32,8 @@ public class ClientConnection implements Runnable {
      * 
      * Stellt einen Server Thread für eine Client Verbindung da.
      * Server Socket ist der allg. gültige Serversocket
+     * akt ist der array index der client connections
+     * Starter den Verwie auf die Instanz von Starter
      * 
      */
     public ClientConnection(ServerSocket myServerSocket, int akt, Starter starter, boolean isRestart) {
@@ -89,6 +91,9 @@ public class ClientConnection implements Runnable {
         }
     }
     
+    /**
+     * Stoppt die Instanz der Client Connection
+     */
     public synchronized void stopme(){
         try {
              mysocket.close();
