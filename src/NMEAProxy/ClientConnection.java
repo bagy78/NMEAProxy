@@ -23,6 +23,19 @@ public class ClientConnection implements Runnable {
     private OutputStream myoutputstream;
     private boolean isRestart;
     
+    /**
+     *
+     * @param myServerSocket
+     * @param akt
+     * @param starter
+     * @param isRestart
+     * 
+     * Stellt einen Server Thread für eine Client Verbindung da.
+     * Server Socket ist der allg. gültige Serversocket
+     * akt ist der array index der client connections
+     * Starter den Verwie auf die Instanz von Starter
+     * 
+     */
     public ClientConnection(ServerSocket myServerSocket, int akt, Starter starter, boolean isRestart) {
         this.myServerSocket = myServerSocket;
         this.akt = akt;
@@ -56,6 +69,12 @@ public class ClientConnection implements Runnable {
         System.out.println("Thread finished: " + akt);
     }
  
+    /**
+     *
+     * @param a
+     * byte a wird in myoutputstream geschrieben. bei exception wird der thread gestoppt
+     * die anzeige für die aktiven Verbindungen decrementiert unt eine neue instanz gestartet
+     */
     public void write (byte a){
         
         //myoutputstream.write(a);
@@ -72,6 +91,9 @@ public class ClientConnection implements Runnable {
         }
     }
     
+    /**
+     * Stoppt die Instanz der Client Connection
+     */
     public synchronized void stopme(){
         try {
              mysocket.close();

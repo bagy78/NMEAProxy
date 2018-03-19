@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>Configuration file for the NMEA Proxy</comment>
+<entry key="ClientPort">4444</entry>
+<entry key="MaxClients">30</entry>
+<entry key="Notizen">Protokoll Server</entry>
+<entry key="ServerOutPort">4444</entry>
+<entry key="ServerInPort">4001</entry>
+<entry key="ClientIP">192.168.121.3</entry>
+</properties>

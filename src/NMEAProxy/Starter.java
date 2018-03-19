@@ -22,10 +22,22 @@ public class Starter {
     private Thread tclients[];
     private MasterClient mymasterclient;
     private Thread tmasterclient;
+    private MasterServer mymasterserver;
+    private Thread tmymasterserver;
     private int serverport; 
     private int aktiveverbindungen;
     private final GUI gui;
 
+    /**
+     *
+     * @param index
+     * @param serverport
+     * @param gui
+     * 
+     * index Anzahl der Client Verbindungen
+     * Serverport ist klar
+     * gui die Instanz des GUI
+     */
     public Starter(int index, int serverport, GUI gui) {
         this.index = index;
         this.verbindungen = 0;
@@ -35,12 +47,29 @@ public class Starter {
         this.gui = gui;
     }
 
+    /**
+     *
+     * @param ip
+     * @param port
+     * 
+     * Startet die Instanz von Masterclient mit ip und port
+     */
     public void startMasterClient(String ip, int port){
         mymasterclient = new MasterClient(this, ip, port);
         tmasterclient = new Thread(mymasterclient);
         tmasterclient.start();
     }
     
+    public void startMasterServer(int port){
+        mymasterserver = new MasterServer(this, port);
+        tmymasterserver = new Thread(mymasterserver);
+        tmymasterserver.start();
+    }
+    
+    /**
+     * Wird direkt beim drücken von Start aufgerufen 
+     * Diese Funktion erstellt die multiple Serverinstanz 
+     */
     public void begin(){
         try {
             myServerSocket = new ServerSocket(serverport);
@@ -51,6 +80,12 @@ public class Starter {
         nextclient(verbindungen);
     }
     
+    /**
+     *
+     * @param akt
+     * wenn eine clientverbindung abbrcht wird diese instanz beendet und 
+     * ene neue geöffnet
+     */
     public void restartConnection(int akt){
         if (myServerSocket.isClosed() == true){
             try {
@@ -67,7 +102,13 @@ public class Starter {
         
     }
         
-    // Erstellt eine Clientverbindung Listen
+    
+
+    /**
+     *
+     * @param akt
+     * erstellt neue client connection iinerhalb des arrays thread 
+     */
     public void nextclient(int akt){
         
          if (akt < index) {
@@ -85,7 +126,7 @@ public class Starter {
              try {
                  myServerSocket.close();
              } catch (Exception e) {
-                 System.out.println("Starter Zeile 64" + e);
+                 System.out.println("Starter Zeile 121" + e);
              }
              
          }
@@ -94,6 +135,12 @@ public class Starter {
     }
     
     // Schreibt ein Byte an alle geöffneten Clients die Verbindung haben
+
+    /**
+     *
+     * @param a
+     * byte a wird an alle offenen threads geschrieben
+     */
     public void dowrite(byte a){
         for (int i = 0; i < (verbindungen + 1); i++) {
             if (i < (verbindungen - 1)) {
@@ -124,8 +171,20 @@ public class Starter {
     /** Stoppt den Masterclient
      * 
      */
-    public void stopmasterclient(){
-        mymasterclient.setStopme(true);
+    public void stopmasterconnection(){
+        System.out.println("xy");
+        try {
+           
+            mymasterserver.setStopme(true);
+        } catch (Exception e) {
+            System.out.println("scheinbar kein masterserver aktiv: " + e);
+        }
+        try {
+            mymasterclient.setStopme(true);
+        } catch (Exception e) {
+            System.out.println("scheinbar kein masterserver aktiv: " + e);
+        }
+        
     }
     
     /**
@@ -138,10 +197,18 @@ public class Starter {
         }
     }
 
+    /**
+     *
+     * @return
+     * gibt die anzahl der aktiven verbindungen zurück
+     */
     public int getAktiveverbindungen() {
         return aktiveverbindungen;
     }
 
+    /**
+     *erhöht die anzahl der aktiven verbindungen
+     */
     public void incrementAktive() {
         aktiveverbindungen++;
         System.out.println("Aktive Verbindungen: " + aktiveverbindungen);
@@ -156,6 +223,9 @@ public class Starter {
         }
     }
     
+    /**
+     *verringert die anzahl der aktiven verbindugnen
+     */
     public void decrementAktive() {
         aktiveverbindungen--;
         System.out.println("Aktive Verbindungen: " + aktiveverbindungen);
