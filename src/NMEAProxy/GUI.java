@@ -69,7 +69,6 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldClientIP = new javax.swing.JTextField();
         jTextFieldClientPort = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jButtonStop = new javax.swing.JButton();
         jButtonStartPutty = new javax.swing.JButton();
         jLabelIdle = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -103,10 +102,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel6.setText("Notizen");
 
         jPanel1.setBackground(new java.awt.Color(200, 200, 200));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
 
         jLabel8.setText("Data Input: Start local Server");
 
+        jButtonStartServer.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonStartServer.setLabel("Start Server");
         jButtonStartServer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,9 +125,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel8)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -137,34 +135,37 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jLabel10)
                             .addComponent(jTextFieldServerInPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
-                        .addComponent(jButtonStartServer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(24, 24, 24))))
+                        .addComponent(jButtonStartServer, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldLocalAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldServerInPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonStartServer, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldLocalAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldServerInPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12))
+                    .addComponent(jButtonStartServer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(200, 200, 200));
-        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel2.setBorder(javax.swing.BorderFactory.createBevelBorder(0));
         jPanel2.setPreferredSize(new java.awt.Dimension(402, 138));
 
+        jButtonStartClient.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButtonStartClient.setText("Start Client");
+        jButtonStartClient.setToolTipText("");
         jButtonStartClient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonStartClientActionPerformed(evt);
@@ -184,9 +185,7 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
@@ -196,38 +195,31 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jTextFieldClientPort, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(31, 31, 31)
-                        .addComponent(jButtonStartClient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))))
+                        .addComponent(jButtonStartClient, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldClientIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldClientPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addComponent(jButtonStartClient, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldClientIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldClientPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8))
+                    .addComponent(jButtonStartClient, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButtonStartClient.getAccessibleContext().setAccessibleDescription("");
-
-        jButtonStop.setText("Stop");
-        jButtonStop.setEnabled(false);
-        jButtonStop.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonStopActionPerformed(evt);
-            }
-        });
 
         jButtonStartPutty.setText("Putty");
         jButtonStartPutty.setToolTipText("");
@@ -290,7 +282,6 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonStop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextFieldNotizen)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,9 +298,9 @@ public class GUI extends javax.swing.JFrame {
                             .addComponent(jButtonStartPutty, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(jLabelaktverbindungen, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,13 +309,12 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabelIdle)
                 .addGap(12, 12, 12)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
-                .addComponent(jButtonStop, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
+                        .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jTextFieldServerOutPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -332,24 +322,96 @@ public class GUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextFieldmaxClients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonStartPutty, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
+                    .addComponent(jButtonStartPutty, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabelaktverbindungen))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jTextFieldNotizen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonStopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStopActionPerformed
+    private void jButtonStartClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartClientActionPerformed
+        // TODO add your handling code here:
+        
+        // Starter mit maximale Anzahl der Verbindungen instanzieren
+        
+        if (a == null){
+        //JOptionPane.showMessageDialog(rootPane, "Starte neue Verbindung zu: " + jTextFieldClientIP.getText() + ":" + jTextFieldClientPort.getText());
+        // Neue Instanz mit int max Connections
+        a = new Starter(Integer.parseInt(jTextFieldmaxClients.getText()),Integer.parseInt(jTextFieldServerOutPort.getText()),this);
+        // methode beginn mit angabe von Portnummer 
+        a.begin();
+        // Starte den MasterClient mit IP und Port
+        a.startMasterClient(jTextFieldClientIP.getText(), Integer.parseInt(jTextFieldClientPort.getText()));
+        
+        jButtonStartClient.setText("Stop Client");
+        System.out.println(a.toString()); 
+        changeGUIStartClient();
+        }else{
+            //JOptionPane.showMessageDialog(rootPane, "Eine Verbindung ist Aktiv");
+            stopAction();
+        }
+        
+    }//GEN-LAST:event_jButtonStartClientActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, "NMEA Proxy 0.4\nby Bernhard Bagyura\n27 November 2019");
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jTextFieldNotizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNotizenActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNotizenActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        saveallSettings();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jButtonStartServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartServerActionPerformed
+        // TODO add your handling code here:
+        if (a == null){
+                a = new Starter(Integer.parseInt(jTextFieldmaxClients.getText()),Integer.parseInt(jTextFieldServerOutPort.getText()),this);
+                a.begin();
+                a.startMasterServer(Integer.parseInt(jTextFieldServerInPort.getText()));
+                System.out.println(a.toString()); 
+                jButtonStartServer.setText("Stop Server");
+                changeGUIStartServer();
+            }else{
+                    //JOptionPane.showMessageDialog(rootPane, "Eine Verbindung ist Aktiv");
+                    stopAction();
+                }
+        //System.out.println("GUI Start ? ");
+    }//GEN-LAST:event_jButtonStartServerActionPerformed
+
+    private void jButtonStartPuttyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartPuttyActionPerformed
+        // TODO add your handling code here:
+        String[] params = new String[4];
+        params[0] = "putty.exe";
+        params[1] = "-raw";
+        params[2] = "@127.0.0.1";
+        params[3] = jTextFieldServerOutPort.getText();
+        try {
+            Process putty = Runtime.getRuntime().exec(params);    //("putty.exe","-raw","@127.0.0.1","4444");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Putty not found: " + e);
+        }
+        
+    }//GEN-LAST:event_jButtonStartPuttyActionPerformed
+
+    private void stopAction() {                                            
         // TODO add your handling code here:
         try {
             a.stopmasterconnection();            
@@ -374,78 +436,10 @@ public class GUI extends javax.swing.JFrame {
         System.gc();
         // 
         jLabelaktverbindungen.setText("0");
+        
         changeGUIStop();
-    }//GEN-LAST:event_jButtonStopActionPerformed
-
-    private void jButtonStartClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartClientActionPerformed
-        // TODO add your handling code here:
-        
-        // Starter mit maximale Anzahl der Verbindungen instanzieren
-        
-        if (a == null){
-        //JOptionPane.showMessageDialog(rootPane, "Starte neue Verbindung zu: " + jTextFieldClientIP.getText() + ":" + jTextFieldClientPort.getText());
-        // Neue Instanz mit int max Connections
-        a = new Starter(Integer.parseInt(jTextFieldmaxClients.getText()),Integer.parseInt(jTextFieldServerOutPort.getText()),this);
-        // methode beginn mit angabe von Portnummer 
-        a.begin();
-        // Starte den MasterClient mit IP und Port
-        a.startMasterClient(jTextFieldClientIP.getText(), Integer.parseInt(jTextFieldClientPort.getText()));
-        
-        System.out.println(a.toString()); 
-        }else{
-            JOptionPane.showMessageDialog(rootPane, "Eine Verbindung ist Aktiv");
-        }
-        changeGUIStart();
-    }//GEN-LAST:event_jButtonStartClientActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "NMEA Proxy 0.3\nby Bagy\n1 September 2017");
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jTextFieldNotizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNotizenActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNotizenActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-        saveallSettings();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jButtonStartServerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartServerActionPerformed
-        // TODO add your handling code here:
-        if (a == null){
-                a = new Starter(Integer.parseInt(jTextFieldmaxClients.getText()),Integer.parseInt(jTextFieldServerOutPort.getText()),this);
-                a.begin();
-                a.startMasterServer(Integer.parseInt(jTextFieldServerInPort.getText()));
-                System.out.println(a.toString()); 
-            }else{
-                    JOptionPane.showMessageDialog(rootPane, "Eine Verbindung ist Aktiv");
-                }
-        changeGUIStart();
-        System.out.println("GUI Start ? ");
-    }//GEN-LAST:event_jButtonStartServerActionPerformed
-
-    private void jButtonStartPuttyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonStartPuttyActionPerformed
-        // TODO add your handling code here:
-        String[] params = new String[4];
-        params[0] = "putty.exe";
-        params[1] = "-raw";
-        params[2] = "@127.0.0.1";
-        params[3] = jTextFieldServerOutPort.getText();
-        try {
-            Process putty = Runtime.getRuntime().exec(params);    //("putty.exe","-raw","@127.0.0.1","4444");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Putty not found: " + e);
-        }
-        
-    }//GEN-LAST:event_jButtonStartPuttyActionPerformed
-
+    }    
+    
     public void setActiveVerbindungen(int verbindungen){
         jLabelaktverbindungen.setText(Integer.toString(verbindungen));
     }
@@ -461,8 +455,32 @@ public class GUI extends javax.swing.JFrame {
        LastSettings.setPreference("ServerInPort",jTextFieldServerInPort.getText());
     }
     
-    private void changeGUIStart(){
+    public void changeConnectionstatusClient(boolean status){
+        //jLabelIdle.setForeground(Color.green);
+        if (status == true) jButtonStartClient.setBackground(Color.GREEN);
+        if (status == false) jButtonStartClient.setBackground(Color.RED);
+    }
+    public void changeConnectionstatusServer(boolean status){
+        //jLabelIdle.setForeground(Color.red);
+        if (status == true)jButtonStartServer.setBackground(Color.GREEN);
+        if (status == false)jButtonStartServer.setBackground(Color.RED);
+    }
+    
+    private void changeGUIStartClient(){
         jButtonStartServer.setEnabled(false);
+        //jButtonStartClient.setEnabled(false);
+        jButtonStartPutty.setEnabled(true);
+        jTextFieldLocalAddress.setEnabled(false);
+        jTextFieldServerInPort.setEnabled(false);
+        jTextFieldClientIP.setEnabled(false);
+        jTextFieldClientPort.setEnabled(false);
+        jTextFieldServerOutPort.setEnabled(false);
+        jTextFieldmaxClients.setEnabled(false);
+        jLabelIdle.setText("ACTIVE");
+        //jLabelIdle.setForeground(Color.blue);
+    }
+    private void changeGUIStartServer(){
+        //jButtonStartServer.setEnabled(false);
         jButtonStartClient.setEnabled(false);
         jButtonStartPutty.setEnabled(true);
         jTextFieldLocalAddress.setEnabled(false);
@@ -471,13 +489,16 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldClientPort.setEnabled(false);
         jTextFieldServerOutPort.setEnabled(false);
         jTextFieldmaxClients.setEnabled(false);
-        jButtonStop.setEnabled(true);
         jLabelIdle.setText("ACTIVE");
-        jLabelIdle.setForeground(Color.red);
+        //jLabelIdle.setForeground(Color.blue);
     }
     private void changeGUIStop(){
         jButtonStartServer.setEnabled(true);
+        jButtonStartServer.setText("Start Server");
+        jButtonStartServer.setBackground(Color.LIGHT_GRAY);
         jButtonStartClient.setEnabled(true);
+        jButtonStartClient.setText("Start Client");
+        jButtonStartClient.setBackground(Color.LIGHT_GRAY);
         jButtonStartPutty.setEnabled(false);
         jTextFieldLocalAddress.setEnabled(true);
         jTextFieldServerInPort.setEnabled(true);
@@ -485,7 +506,6 @@ public class GUI extends javax.swing.JFrame {
         jTextFieldClientPort.setEnabled(true);
         jTextFieldServerOutPort.setEnabled(true);
         jTextFieldmaxClients.setEnabled(true);
-        jButtonStop.setEnabled(false);
         jLabelIdle.setText("IDLE");
         jLabelIdle.setForeground(Color.GRAY);
     }
@@ -530,7 +550,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonStartClient;
     private javax.swing.JButton jButtonStartPutty;
     private javax.swing.JButton jButtonStartServer;
-    private javax.swing.JButton jButtonStop;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
