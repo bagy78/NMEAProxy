@@ -32,34 +32,57 @@ public class MasterServer implements Runnable {
     
      @Override
     public void run() {
-                try {
- 
-            myserversocket = new ServerSocket(port);
-                    System.out.println("Socket Port: " + port);
-            
-            mysocket = myserversocket.accept();
-                    System.out.println("Accept passiert");
-               
-            myinputstream = mysocket.getInputStream();
-                    System.out.println("input stream");
-                    
-            myserversocket.close();
-            
-        } catch (Exception e) {
-            System.out.println("Exception im MasterServer" + e);
-            JOptionPane.showMessageDialog(null, "Abbruch!");
-            stopme = true;
-        }
+        
+        connect();    
+        
         while (stopme == false){
             try {
                 byte z[]= new byte[200]; 
                 //System.out.println("Bin in der Schleife bbg" + z);
                 int laenge = myinputstream.read(z);
+                
+                if (laenge == -1) {
+                    System.out.println("Master Server Länge ist: "+laenge);
+                    mystarter.changeConnectionStatusServer(false);
+                    connect();
+                }
                 for (int i = 0; i < laenge; i++) {
                     mystarter.dowrite(z[i]);
                 }
             } catch (Exception e) {
+                System.out.println("MasterServer BBG2" + e);
+                try{
+                    myinputstream.close();
+                    mysocket.close();
+                    myserversocket.close();
+                } catch (Exception f){
+                    System.out.println("MasterServer BBG3" + f);
+                      }
+                mystarter.changeConnectionStatusServer(false);
+                connect();
             }
+        }
+    }
+    
+    private void connect(){
+        try {
+ 
+            myserversocket = new ServerSocket(port);
+                    //System.out.println("Socket Port: " + port);
+            
+            mysocket = myserversocket.accept();
+                    //System.out.println("Accept passiert");
+                    mystarter.changeConnectionStatusServer(true);
+               
+            myinputstream = mysocket.getInputStream();
+                    //System.out.println("input stream");
+                    
+            myserversocket.close();
+            
+        } catch (Exception e) {
+            System.out.println("Master Server BBG1" + e);
+            //JOptionPane.showMessageDialog(null, "Abbruch!");
+            stopme = true;
         }
     }
     
@@ -70,18 +93,18 @@ public class MasterServer implements Runnable {
             myinputstream.close();
                         
         } catch (Exception e) {
-            System.out.println("Master Server Zeile myinputstream" + e);
+            //System.out.println("Master Server Zeile myinputstream" + e);
         }
         try {
             mysocket.close();
             
         } catch (Exception e) {
-            System.out.println("Master Server Zeile mysocket" + e);
+            //System.out.println("Master Server Zeile mysocket" + e);
         }
         try {
             myserversocket.close();
         } catch (Exception e) {
-            System.out.println("Master Server Zeile myserversocket" + e);
+            //System.out.println("Master Server Zeile myserversocket" + e);
         }
         this.stopme = stopme;
     }

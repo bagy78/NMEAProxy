@@ -116,9 +116,9 @@ public class Starter {
             tclients[akt] = new Thread(clients[akt]);
             tclients[akt].start();
             
-            System.out.println("Erstellung: " + tclients[akt].getId() +" "+ tclients[akt].getName());
+            //System.out.println("Erstellung: " + tclients[akt].getId() +" "+ tclients[akt].getName());
             verbindungen++;
-            System.out.println(verbindungen + ": Verbindunge geöffnet" );
+            //System.out.println(verbindungen + ": Verbindunge geöffnet" );
          }else {
              System.out.println("maximale Verbindungen erreicht");
              //Dieser Zweig darf nicht fehlen, weil sonst verbindungen++ fehlt und die letzte instant nicht beschrieben wird.
@@ -126,7 +126,7 @@ public class Starter {
              try {
                  myServerSocket.close();
              } catch (Exception e) {
-                 System.out.println("Starter Zeile 121" + e);
+                 System.out.println("Starter Zeile 129" + e);
              }
              
          }
@@ -182,7 +182,7 @@ public class Starter {
         try {
             mymasterclient.setStopme(true);
         } catch (Exception e) {
-            System.out.println("scheinbar kein masterserver aktiv: " + e);
+            System.out.println("scheinbar kein masterclient aktiv: " + e);
         }
         
     }
@@ -205,20 +205,29 @@ public class Starter {
     public int getAktiveverbindungen() {
         return aktiveverbindungen;
     }
-
+    public void changeConnectionStatusServer(boolean status){
+    
+        gui.changeConnectionstatusServer(status);
+        
+    }
+    public void changeConnectionStatusClient(boolean status){
+    
+        gui.changeConnectionstatusClient(status);
+        
+    }
     /**
      *erhöht die anzahl der aktiven verbindungen
      */
     public void incrementAktive() {
         aktiveverbindungen++;
-        System.out.println("Aktive Verbindungen: " + aktiveverbindungen);
+        //System.out.println("Aktive Verbindungen: " + aktiveverbindungen);
         gui.setActiveVerbindungen(aktiveverbindungen);
         if (aktiveverbindungen == index) {
             System.out.println("Max Verbindungen");
             try {
                 myServerSocket.close();
             } catch (Exception e) {
-                System.out.println("Starter incrementAvtice Line 152: " + e);
+                //System.out.println("Starter incrementAvtice Line 152: " + e);
             }
         }
     }

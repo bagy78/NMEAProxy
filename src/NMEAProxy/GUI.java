@@ -352,7 +352,7 @@ public class GUI extends javax.swing.JFrame {
         a.startMasterClient(jTextFieldClientIP.getText(), Integer.parseInt(jTextFieldClientPort.getText()));
         
         jButtonStartClient.setText("Stop Client");
-        System.out.println(a.toString()); 
+        //System.out.println(a.toString()); 
         changeGUIStartClient();
         }else{
             //JOptionPane.showMessageDialog(rootPane, "Eine Verbindung ist Aktiv");
@@ -368,7 +368,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, "NMEA Proxy 0.4\nby Bernhard Bagyura\n27 November 2019");
+        JOptionPane.showMessageDialog(rootPane, "NMEA Proxy 1.0\nby Bernhard Bagyura\n28 November 2019");
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jTextFieldNotizenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNotizenActionPerformed
@@ -386,7 +386,7 @@ public class GUI extends javax.swing.JFrame {
                 a = new Starter(Integer.parseInt(jTextFieldmaxClients.getText()),Integer.parseInt(jTextFieldServerOutPort.getText()),this);
                 a.begin();
                 a.startMasterServer(Integer.parseInt(jTextFieldServerInPort.getText()));
-                System.out.println(a.toString()); 
+                //System.out.println(a.toString()); 
                 jButtonStartServer.setText("Stop Server");
                 changeGUIStartServer();
             }else{
@@ -416,19 +416,19 @@ public class GUI extends javax.swing.JFrame {
         try {
             a.stopmasterconnection();            
         } catch (Exception e) {
-            System.out.println("stopmasterconnection: " + e);
+            //System.out.println("stopmasterconnection: " + e);
         }
        
         try {
             a.stopmyServerSocket();      
         } catch (Exception e) {
-            System.out.println("stopmyserversocket: " + e);
+            //System.out.println("stopmyserversocket: " + e);
         }
         
         try {
             a.stopmyclients();
         } catch (Exception e) {
-            System.out.println("stopmyclients: " + e);
+            //System.out.println("stopmyclients: " + e);
         }
         
         a = null;

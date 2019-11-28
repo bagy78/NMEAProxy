@@ -47,7 +47,7 @@ public class ClientConnection implements Runnable {
     public synchronized void run() {
         try {
             mysocket = myServerSocket.accept();
-            System.out.println("Verbindung akzeptiert: " + this.toString());
+            //System.out.println("Verbindung akzeptiert: " + this.toString());
             myoutputstream = mysocket.getOutputStream();
             
             starter.incrementAktive();
@@ -61,7 +61,7 @@ public class ClientConnection implements Runnable {
             System.out.println(e);
         }
         try {
-            System.out.println("Thread waiting: " + akt);
+            //System.out.println("Thread waiting: " + akt);
             wait(); 
             
         } catch (Exception e) {
@@ -82,7 +82,7 @@ public class ClientConnection implements Runnable {
         try {
             myoutputstream.write(a);
         } catch (IOException e) {
-            System.out.println("Akt: "+ akt + "ClientConnection Exception in Write: " + e);
+            //System.out.println("Akt: "+ akt + "ClientConnection Exception in Write: " + e);
             stopme();
             starter.decrementAktive();
             starter.restartConnection(akt);
@@ -98,11 +98,11 @@ public class ClientConnection implements Runnable {
         try {
              mysocket.close();
              myoutputstream.close();
-             System.out.println("Class ClientConnection Socket close for Thread: " + this.toString());
+             //System.out.println("Class ClientConnection Socket close for Thread: " + this.toString());
              notify();
              
         } catch (Exception e) {
-            System.out.println("Class ClientConnection exception Close Socket Connection: " +  e);
+            //System.out.println("Class ClientConnection exception Close Socket Connection: " +  e);
         }
     }
     

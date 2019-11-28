@@ -39,9 +39,11 @@ public class MasterClient implements Runnable {
         while (stopme == false){
             try {
                 byte z[]= new byte[200]; 
+                //System.out.println("BBG4: " + mysocket.isClosed());
                 int laenge = myinputstream.read(z);
-                System.out.println("Laenge: " + laenge);
+                //System.out.println("Laenge: " + laenge);
                 if (laenge == -1){
+                    System.out.println("BBG6: ");
                     tryreconnect = true;
                     connect();
                 }
@@ -49,7 +51,17 @@ public class MasterClient implements Runnable {
                     mystarter.dowrite(z[i]);
                 }
             } catch (Exception e) {
-                System.out.println("neue Meldung xyz: " + e);
+                System.out.println("BBG1: " + e);
+                try {
+                    myinputstream.close();
+                    mysocket.close();
+                    
+                } catch (Exception f) {
+                         System.out.println("BBG5: " + f);
+                        }
+                mystarter.changeConnectionStatusClient(false);
+                tryreconnect = true;
+                connect();// set Dateninput   
             }
         }
     }
@@ -57,31 +69,34 @@ public class MasterClient implements Runnable {
     
      private void connect(){    
         while (tryreconnect == true && stopme == false){
+            
             try {
               mysocket = new Socket(InetAddress.getByName(ip), port);
               mysocket.setSoTimeout(5000);
               myinputstream = mysocket.getInputStream();
               tryreconnect = false;
+              mystarter.changeConnectionStatusClient(true);
               
             
            } catch (Exception e) {
-             System.out.println("Keine Verbindung" + e);
+             System.out.println("BBG2: " + e);
               //JOptionPane.showMessageDialog(null, "Verbidung fehlgeschlagen!");
               tryreconnect = true;
-              //stopme = true;
-          }
+              mystarter.changeConnectionStatusClient(false);
+              }
         }
     }
     
     public void setStopme(boolean stopme) {
         
+        this.stopme = stopme;
         try {
             myinputstream.close();
             mysocket.close();
         } catch (Exception e) {
-            System.out.println("Master Client Zeile 67" + e);
+            System.out.println("BBG3: " + e);
         }
-        this.stopme = stopme;
+        
     }
             
 }
